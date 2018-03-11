@@ -8,5 +8,5 @@ docker build -t image_name .
 
 #Run
 ```
-docker run -d -p 5001:81 image_name
+docker-compose scale app=3 nginx=1
 ```

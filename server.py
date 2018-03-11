@@ -1,4 +1,5 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
+import os
 from sys import argv
 
 
@@ -10,7 +11,8 @@ class Server(BaseHTTPRequestHandler):
 
     def do_GET(self):
         self._set_headers()
-        self.wfile.write(bytes("1", "utf-8"))
+        host_name = os.environ['HOSTNAME']
+        self.wfile.write(bytes(f'server:{host_name}', "utf-8"))
 
 
 def run(port, server_class=HTTPServer, handler_class=Server):

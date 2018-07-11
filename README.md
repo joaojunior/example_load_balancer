@@ -8,5 +8,5 @@ docker build -t image_name .
 
 #Run
 ```
-docker-compose scale app=3 nginx=1
+docker-compose up --scale app=3 --scale nginx=1
 ```
